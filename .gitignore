@@ -1,17 +1,58 @@
-# Python
+# === Python ===
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
-env/
-venv/
+*.sqlite3
+*.env
+.env.*
+*.db
+*.log
+*.pot
+*.pyc
+*.pkl
+*.mypy_cache/
+*.pytest_cache/
+*.coverage
+*.vscode/
+.cache/
+dist/
+build/
 
 # VSCode
 .vscode/
 
-# FastAPI static/uploads (si aplica)
-*.sqlite3
+# === FastAPI / Uvicorn ===
 *.log
+*.pid
+*.db
+*.sqlite
 
-# System
+# === Node / React ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnp/
+.pnp.js
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vite build
+dist/
+
+# === macOS ===
 .DS_Store
+
+# === Otros ===
+*.zip
+*.tar.gz
+*.tgz
+*.bak
+*.swp
+*.swo
+*.tmp
+*.old

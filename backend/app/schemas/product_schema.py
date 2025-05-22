@@ -1,19 +1,11 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
-class Product(BaseModel):
-    id: int
-    nombre: str
-    descripcion: str
-    precio: float
-    imagenUrl: str
-    talla: str
-    color: str
 class ProductoConProveedor(BaseModel):
     id: int
-    nombre: str
-    descripcion: str
-    precio: float
-    talla: str
-    color: str
-    imagenUrl: str
-    proveedor: str
+    nombre: str = Field(..., description="Nombre del producto")
+    descripcion: str = Field(..., description="Descripción del producto")
+    precio: float = Field(..., ge=0, description="Precio en pesos mexicanos")
+    talla: str = Field(..., description="Talla estándar mexicana")
+    color: str = Field(..., description="Color principal del producto")
+    imagenUrl: str = Field(..., description="Ruta relativa a /static/img/")
+    proveedor: str = Field(..., description="Nombre del proveedor asociado")

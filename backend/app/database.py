@@ -1,16 +1,21 @@
-
 import pyodbc
 import os
 from dotenv import load_dotenv
 
-load_dotenv()  # Carga las variables desde el .env si existe
+load_dotenv()
 
 def get_connection():
-    conn_str = (
-        f"DRIVER={{ODBC Driver 17 for SQL Server}};"
-        f"SERVER={os.getenv('DB_SERVER', '66.179.95.14')},{os.getenv('DB_PORT', '1433')};"
-        f"DATABASE={os.getenv('DB_NAME', 'LizethSH')};"
-        f"UID={os.getenv('DB_USER', 'sa')};"
-        f"PWD={os.getenv('DB_PASSWORD', 'Vic1973')}"
-    )
-    return pyodbc.connect(conn_str)
+    try:
+        conn_str = (
+            f"DRIVER={{ODBC Driver 17 for SQL Server}};"
+            f"SERVER={os.getenv('DB_SERVER')},{os.getenv('DB_PORT')};"
+            f"DATABASE={os.getenv('DB_NAME')};"
+            f"UID={os.getenv('DB_USER')};"
+            f"PWD={os.getenv('DB_PASSWORD')}"
+        )
+        connection = pyodbc.connect(conn_str)
+        print("✅ Conexión a SQL Server establecida correctamente.")
+        return connection
+    except pyodbc.Error as e:
+        print("❌ Error de conexión a SQL Server:", e)
+        raise
