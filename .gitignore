@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+
+# VSCode
+.vscode/
+
+# FastAPI static/uploads (si aplica)
+*.sqlite3
+*.log
+
+# System
+.DS_Store
